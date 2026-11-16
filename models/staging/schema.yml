@@ -1,0 +1,56 @@
+
+
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Cleaned and standardised customer data"
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_name
+        description: "Customer's full name"
+        data_tests:
+          - not_null
+
+      - name: email
+        description: "Customer email address"
+
+      - name: city
+        description: "Customer city"
+
+      - name: signup_date
+        description: "Date the customer signed up"
+
+  - name: stg_orders
+    description: "Cleaned and standardised order data"
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        description: "Customer who placed the order"
+        data_tests:
+          - not_null
+
+      - name: product_id
+        description: "Product identifier"
+
+      - name: order_date
+        description: "Date the order was placed"
+
+      - name: quantity
+        description: "Number of units ordered"
+
+      - name: unit_price
+        description: "Price per unit"
+
+      - name: payment_status
+        description: "Payment status of the order"
